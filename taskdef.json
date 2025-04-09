@@ -1,0 +1,162 @@
+{
+  "containerDefinitions": [
+      {
+          "name": "log_router",
+          "image": "009160052643.dkr.ecr.ap-northeast-2.amazonaws.com/baseflue:latest",
+          "cpu": 0,
+          "portMappings": [],
+          "essential": true,
+          "environment": [
+              {
+                  "name": "CONFIG",
+                  "value": "W1NFUlZJQ0VdCiAgRmx1c2ggICAgICAgICAgIDEKICBEYWVtb24gICAgICAgICAgb2ZmCiAgTG9nX0xldmVsICAgICAgIGRlYnVnCiAgUGFyc2Vyc19GaWxlICAgIC9wYXJzZXJzLmNvbmYKCiMgW0ZJTFRFUl0KIyAgIE5hbWUgcGFyc2VyCiMgICBNYXRjaCAqCiMgICBLZXlfTmFtZSBsb2cKIyAgIFBhcnNlciBjdXN0b20KIyAgIFJlc2VydmVfRGF0YSBPbgoKW09VVFBVVF0KICBOYW1lIGNsb3Vkd2F0Y2gKICBNYXRjaCAqCiAgcmVnaW9uIGFwLW5vcnRoZWFzdC0yCiAgbG9nX2dyb3VwX25hbWUgL2F3cy9lY3MvcHJvamVjdC1jbHVzdGVyL3N0cmVzcwogIGxvZ19zdHJlYW1fbmFtZSAke1RBU0tfSUR9CiAgYXV0b19jcmVhdGVfZ3JvdXAgdHJ1ZQo="
+              },
+              {
+                  "name": "PARSERS",
+                  "value": "W1BBUlNFUl0KICBOYW1lIGN1c3RvbQogIEZvcm1hdCByZWdleAogIFJlZ2V4IF4oPzxyZW1vdGVfYWRkcj4uKikgLSAtIFxbKD88dGltZT4uKilcXSAiKD88bWV0aG9kPi4qKSAoPzxwYXRoPi4qKSAoPzxwcm90b2NvbD4uKikiICg/PHN0cmVzc19jb2RlPi4qKSAoPzxsYXRlbmN5Pi4qKSAiLSIgIig/PHVzZXJfYWdlbnQ+LiopIiAiLSIkCiAgVGltZV9LZXkgdGltZQogIFRpbWVfRm9ybWF0ICVkLyViLyVZOiVIOiVNOiVTICV6CiAgVGltZV9LZWVwIE9uCg=="
+              }
+          ],
+          "mountPoints": [],
+          "volumesFrom": [],
+          "linuxParameters": {
+              "initProcessEnabled": true
+          },
+          "startTimeout": 30,
+          "stopTimeout": 120,
+          "user": "0",
+          "privileged": false,
+          "readonlyRootFilesystem": false,
+          "interactive": false,
+          "pseudoTerminal": false,
+          "logConfiguration": {
+              "logDriver": "awslogs",
+              "options": {
+                  "awslogs-group": "/aws/ecs/project-cluster/stress-logroute",
+                  "awslogs-create-group": "true",
+                  "awslogs-region": "ap-northeast-2",
+                  "awslogs-stream-prefix": "ecs"
+              }
+          },
+          "systemControls": [],
+          "firelensConfiguration": {
+              "type": "fluentbit",
+              "options": {
+                  "config-file-type": "file",
+                  "config-file-value": "/config.conf"
+              }
+          }
+      },
+      {
+          "name": "stress",
+          "image": "<IMAGE1_URI>",
+          "cpu": 0,
+          "portMappings": [
+              {
+                  "name": "stress",
+                  "containerPort": 8080,
+                  "hostPort": 8080,
+                  "protocol": "tcp"
+              }
+          ],
+          "essential": true,
+          "environment": [],
+          "mountPoints": [],
+          "volumesFrom": [],
+          "linuxParameters": {
+              "initProcessEnabled": true
+          },
+          "startTimeout": 30,
+          "stopTimeout": 120,
+          "user": "0",
+          "privileged": false,
+          "readonlyRootFilesystem": false,
+          "interactive": false,
+          "pseudoTerminal": false,
+          "logConfiguration": {
+              "logDriver": "awsfirelens",
+              "options": {}
+          },
+          "healthCheck": {
+              "command": [
+                  "CMD-SHELL",
+                  "curl -f http://localhost:8080/healthcheck || exit 1"
+              ],
+              "interval": 5,
+              "timeout": 2,
+              "retries": 1
+          },
+          "systemControls": []
+      }
+  ],
+  "family": "project-stress",
+  "taskRoleArn": "arn:aws:iam::648911607072:role/project-stress-20250409040426078800000007",
+  "executionRoleArn": "arn:aws:iam::648911607072:role/project-stress-20250409040426077700000005",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "requiresAttributes": [
+      {
+          "name": "ecs.capability.execution-role-awslogs"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.ecr-auth"
+      },
+      {
+          "name": "ecs.capability.firelens.options.config.file"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.logging-driver.awsfirelens"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.task-iam-role"
+      },
+      {
+          "name": "ecs.capability.container-health-check"
+      },
+      {
+          "name": "ecs.capability.execution-role-ecr-pull"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+      },
+      {
+          "name": "ecs.capability.task-eni"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.24"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+      },
+      {
+          "name": "ecs.capability.firelens.fluentbit"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.25"
+      },
+      {
+          "name": "ecs.capability.container-ordering"
+      }
+  ],
+  "placementConstraints": [],
+  "compatibilities": [
+      "EC2"
+  ],
+  "requiresCompatibilities": [
+      "EC2"
+  ],
+  "cpu": "128",
+  "memory": "128",
+  "runtimePlatform": {
+      "cpuArchitecture": "ARM64",
+      "operatingSystemFamily": "LINUX"
+  }
+}
