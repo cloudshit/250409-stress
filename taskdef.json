@@ -7,15 +7,15 @@
           "portMappings": [],
           "essential": true,
           "environment": [
-              {
-                  "name": "CONFIG",
-                  "value": "W1NFUlZJQ0VdCiAgRmx1c2ggICAgICAgICAgIDEKICBEYWVtb24gICAgICAgICAgb2ZmCiAgTG9nX0xldmVsICAgICAgIGRlYnVnCiAgUGFyc2Vyc19GaWxlICAgIC9wYXJzZXJzLmNvbmYKCiMgW0ZJTFRFUl0KIyAgIE5hbWUgcGFyc2VyCiMgICBNYXRjaCAqCiMgICBLZXlfTmFtZSBsb2cKIyAgIFBhcnNlciBjdXN0b20KIyAgIFJlc2VydmVfRGF0YSBPbgoKW09VVFBVVF0KICBOYW1lIGNsb3Vkd2F0Y2gKICBNYXRjaCAqCiAgcmVnaW9uIGFwLW5vcnRoZWFzdC0yCiAgbG9nX2dyb3VwX25hbWUgL2F3cy9lY3MvcHJvamVjdC1jbHVzdGVyL3N0cmVzcwogIGxvZ19zdHJlYW1fbmFtZSAke1RBU0tfSUR9CiAgYXV0b19jcmVhdGVfZ3JvdXAgdHJ1ZQo="
-              },
-              {
-                  "name": "PARSERS",
-                  "value": "W1BBUlNFUl0KICBOYW1lIGN1c3RvbQogIEZvcm1hdCByZWdleAogIFJlZ2V4IF4oPzxyZW1vdGVfYWRkcj4uKikgLSAtIFxbKD88dGltZT4uKilcXSAiKD88bWV0aG9kPi4qKSAoPzxwYXRoPi4qKSAoPzxwcm90b2NvbD4uKikiICg/PHN0cmVzc19jb2RlPi4qKSAoPzxsYXRlbmN5Pi4qKSAiLSIgIig/PHVzZXJfYWdlbnQ+LiopIiAiLSIkCiAgVGltZV9LZXkgdGltZQogIFRpbWVfRm9ybWF0ICVkLyViLyVZOiVIOiVNOiVTICV6CiAgVGltZV9LZWVwIE9uCg=="
-              }
-          ],
+            {
+                "name": "CONFIG",
+                "value": "W1NFUlZJQ0VdCiAgRmx1c2ggICAgICAgICAgIDEKICBEYWVtb24gICAgICAgICAgb2ZmCiAgTG9nX0xldmVsICAgICAgIGRlYnVnCiAgUGFyc2Vyc19GaWxlICAgIC9wYXJzZXJzLmNvbmYKCltGSUxURVJdCiAgTmFtZSBwYXJzZXIKICBNYXRjaCAqCiAgS2V5X05hbWUgbG9nCiAgUGFyc2VyIGN1c3RvbQogIFJlc2VydmVfRGF0YSBPbgoKW0ZJTFRFUl0KICAgIE5hbWUgZ3JlcAogICAgTWF0Y2ggKgogICAgRXhjbHVkZSBwYXRoIF4vaGVhbHRoY2hlY2skCgpbT1VUUFVUXQogIE5hbWUgY2xvdWR3YXRjaAogIE1hdGNoICoKICByZWdpb24gYXAtbm9ydGhlYXN0LTIKICBsb2dfZ3JvdXBfbmFtZSAvYXdzL2Vjcy9wcm9qZWN0LWNsdXN0ZXIvc3RhdHVzCiAgbG9nX3N0cmVhbV9uYW1lICR7VEFTS19JRH0KICBhdXRvX2NyZWF0ZV9ncm91cCB0cnVlCg=="
+            },
+            {
+                "name": "PARSERS",
+                "value": "W1BBUlNFUl0KICBOYW1lIGN1c3RvbQogIEZvcm1hdCByZWdleAogIFJlZ2V4IF4oPzxyZW1vdGVfYWRkcj4uKikgLSBcWyg/PHRpbWU+LiopXF0gIig/PG1ldGhvZD4uKikgKD88cGF0aD4uKikgKD88cHJvdG9jb2w+LiopICg/PHN0YXR1c19jb2RlPi4qKSAoPzxsYXRlbmN5Pi4qKSAiKD88dXNlcl9hZ2VudD4uKikiICIkCiAgVGltZV9LZXkgdGltZQogIFRpbWVfRm9ybWF0ICVZLSVtLSVkVCVIOiVNOiVTJXoKICBUaW1lX0tlZXAgT24K"
+            }
+        ],
           "mountPoints": [],
           "volumesFrom": [],
           "linuxParameters": {
